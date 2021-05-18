@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <style>
+          .button {
+               background-color: #4CAF50;
+               border: none;
+               color: white;
+               padding: 10px 32px;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;
+               font-size: 16px;
+               margin: 4px 2px;
+               cursor: pointer;
+          }
+          .button1 {
+               background-color: #4CAF50;
+               color: white;
+               border: 5px solid #4CAF50;
+          }
+          .button1:hover {
+               background-color:white;
+               color: #4CAF50;
+          }
+          </style>
+          <metacharset = "utf-8">
+          <meta name = "viewport" content = "width = device-width, height = device-height, initial-scale = 1.0">
+          <title>Reflected XSS</title>
+     </head>
+     <body background = "background.jpg">
+          <center>
+               <br>
+               <br>
+               <div id = "zeltron">
+               </div>
+               <br>
+               <font size = "7"><p style = "background-color: black; color: yellow;">Enter Name: </p></font><input type = "text" id = "username" style = "width:30%; font-size:20px;" required>
+               <font size = "7"><p style = "background-color: black; color: yellow;">Enter Comments: </p></font><input type = "text" id = "comments" style = "width:100%; font-size:20px;" required>
+               <button class = "button button1" onClick = "zeltron()">Submit</button>
+          </center>
+          <script>
+               function zeltron() {
+                    x = document.getElementById("zeltron").innerHTML;
+                    username = document.getElementById("username").value;
+                    comments = document.getElementById("comments").value;
+                    x = x + "<p class = 'button button1'>" + username + ":" + comments + "</p><br />";
+                    document.getElementById("zeltron").innerHTML = x;
+               }
+          </script>
+     </body>
+</html>

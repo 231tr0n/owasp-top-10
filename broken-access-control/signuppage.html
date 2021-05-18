@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <style>
+               .input
+               {
+                    width:400px;
+                    height:30px;
+               }
+               .button
+               {
+                    background-color: yellow;
+                    border: none;
+                    color: white;
+                    padding: 10px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    width: 100%;
+               }
+
+               .button1
+               {
+                    background-color: yellow;
+                    color: black;
+                    border: 5px solid black;
+               }
+
+               .button1:hover
+               {
+                    background-color:black;
+                    color: yellow;
+                    border: 5px solid yellow;
+               }
+          </style>
+          <metacharset = "utf-8">
+          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+          <title>Home</title>
+     </head>
+     <body background = "background.jpg">
+          <center>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <form action = "signupinfocomplete" method = "post">
+                    <table style = "background-color:black;">
+                         <caption style = "background-color:black">
+                              <font color = "gold" size = "7"><b><i>Sign Up</i></b></font>
+                         </caption>
+                         <tr>
+                              <td>
+                                   <font color = "green" size = "6"><b><i>Email:</i></b></font>
+                              </td>
+                              <td>
+                                   <input type = "text" class = "input" name = "emaile" placeholder = "Email" required>
+                              </td>
+                         </tr>
+                         <tr>
+                              <td colspan = "2">
+                                   <p align = "center"><font color = "gold">Please enter valid Email with ""@gmail.com" mentioned <br>or else you will not be able to reset your Password if you forget<br>it as the Password will be sent to your Email</font></p>
+                              </td>
+                         </tr>
+                         <tr>
+                              <td align = "left">
+                                   <font color = "green" size = "6"><b><i>Username:</i></b></font>
+                              </td>
+                              <td align = "right">
+                                   <input type = "text" class ="input" name = "usernamee" placeholder = "Username" required>
+                              </td>
+                         </tr>
+                         <tr>
+                              <td align = "left">
+                                   <font color = "green" size = "6"><b><i>Password:</i></b></font>
+                              </td>
+                              <td align = "right">
+                                   <input type = "password" class ="input" name = "passworde" placeholder = "Password" required>
+                              </td>
+                         </tr>
+                         <tr>
+                              <td align = "left">
+                                   <font color = "green" size = "6"><b><i>Confirm Password:</i></b></font>
+                              </td>
+                              <td align = "right">
+                                   <input type = "password" class ="input" name = "passwordconfirm" placeholder = "Password" required>
+                              </td>
+                         </tr>
+                         <tr>
+                              <td colspan = "2" align = "center">
+                                   <input type = "submit" class = "button button1" value = "Sign Up">
+                              </td>
+                         </tr>
+                    </table>
+               </form>
+          </center>
+     </body>
+</html>

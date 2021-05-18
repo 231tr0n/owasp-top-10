@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.input {
+				width:400px;
+				height:30px;
+			}
+			.button {
+				background-color: yellow;
+				border: none;
+				color: white;
+				padding: 10px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				width: 100%;
+			}
+			.button1 {
+				background-color: yellow;
+				color: black;
+				border: 5px solid black;
+			}
+			.button1:hover {
+				background-color:black;
+				color: yellow;
+				border: 5px solid yellow;
+			}
+		</style>
+		<metacharset = "utf-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+		<title>Home</title>
+	</head>
+	<body background = "background.jpg">
+		<center>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<table style = "background-color:black">
+				<caption style = "background-color:black">
+					<font color = "gold" size = "7"><b><i>Check Items</i></b></font>
+				</caption>
+				<tr>
+					<td align = "center">
+						<form action = "get_items_stock" method = "post">
+							<table>
+								<tr>
+									<td align = "left">
+										<select class = "input" name = "items" id = "items">
+											<option value = "rpi1">Raspberry PI 1</option>
+											<option value = "rpi2">Raspberry PI 2</option>
+											<option value = "rpi3">Raspberry PI 3</option>
+											<option value = "rpi4">Raspberry PI 4</option>
+										</select>
+									</td>
+									<td align = "right">
+										<input type = "submit" class = "button button1" value = "Check Stock">
+									</td>
+								</tr>
+							</table>
+						</form>
+						<% if (submitted) { %>
+							<p bgcolor = "black"><font size = "7" color = "yellow"><%= stock_number %></font></p>
+						<% } %>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>

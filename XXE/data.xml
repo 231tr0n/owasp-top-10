@@ -1,0 +1,53 @@
+<table_data>
+     <table_row>
+          <name>
+               Srikar
+          </name>
+          <nickname>
+               Zeltron
+          </nickname>
+          <age>
+               16
+          </age>
+          <level>
+               Colonel Rank 38
+          </level>
+          <rank>
+               Silver Elite Master
+          </rank>
+     </table_row>
+     <table_row>
+          <name>
+               Vireen
+          </name>
+          <nickname>
+               V05Ez!
+          </nickname>
+          <age>
+               16
+          </age>
+          <level>
+               Colonel Rank 12
+          </level>
+          <rank>
+               Gold Nova 1
+          </rank>
+     </table_row>
+     <table_row>
+          <name>
+               Rathinn
+          </name>
+          <nickname>
+               Blue Blaze
+          </nickname>
+          <age>
+               16
+          </age>
+          <level>
+               Colonel Rank 12
+          </level>
+          <rank>
+               Gold Nova 2
+          </rank>
+     </table_row>
+</table_data>

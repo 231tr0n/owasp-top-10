@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <metacharset = "utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>arcinertia</title>
+          <style>
+               .button
+               {
+                    background-color: #4CAF50;
+                    border: none;
+                    color: white;
+                    padding: 10px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+               }
+
+               .button1
+               {
+                    background-color: #4CAF50;
+                    color: white;
+                    border: 5px solid #4CAF50;
+               }
+
+               .button1:hover
+               {
+                    background-color:white;
+                    color: #4CAF50;
+               }
+          </style>
+          <script>
+               function ringcomcalc ()
+               {
+                    alert ("The answer is for the Area Moment of Inertia of an axis along X-axis from the Center of Mass");
+                    alert ("The blue dot represents the Origin");
+                    alert ("The green dot represents the Centroid");
+                    var x1 = document.getElementById ("oringradius").value;
+                    var z1 = document.getElementById ("iringradius").value;
+                    var qel = document.getElementById ("ringangle").value;
+                    var y1 = qel / 2;
+
+                    function toRadians1 (deg1)
+                    {
+                         return Math.PI * (deg1 / 180);
+                    }
+
+                    var plus1 = 270 + y1;
+                    var minus1 = 270 - y1;
+                    var radplus1 = toRadians1 (plus1);
+                    var radminus1 = toRadians1 (minus1);
+
+                    x1 = x1 / 1;
+                    z1 = z1 / 1;
+                    var t7 = (x1 * x1) - (z1 * z1);
+                    t7 = t7 / 1;
+                    var e1 = toRadians1 (qel);
+                    var area1 = (e1 * t7) / 2;
+                    area1 = area1 / 1;
+                    var inertia1 = (t7 * area1) / 2;
+                    inertia1 = inertia1 / 1;
+                    inertia1 = inertia1.tofixed (2);
+
+                    document.getElementById ("output670").value = "(" +inertia1+ ")";
+                    document.getElementById ("output671").value = "(" +(inertia1 / 2)+ ")";
+
+                    var e0 = toRadians1 (y1);
+                    var w1 = Math.sin (e0);
+                    var q1 = w1 / e0;
+                    var q2 = x1 * x1 * x1 * 2;
+                    var q3 = z1 * z1 * z1 * 2;
+                    var ras1 = x1 * x1 * 3;
+                    var ras2 = z1 * z1 * 3;
+                    q2 = q2 / 1;
+                    q3 = q3 / 1;
+                    ras1 = ras1 / 1;
+                    ras2 = ras2 / 1;
+                    var q5 = q2 - q3;
+                    var q6 = ras1 - ras2;
+                    var q7 = q5 / q6;
+                    var out1 = q1 * q7;
+
+                    var poi = area1 * out1 * out1;
+                    poi = poi / 1;
+                    inertia1 = inertia1 - poi;
+                    inertia1 = inertia1.toFixed (2);
+
+                    document.getElementById ("output3").value = "(" +inertia1+ ")";
+
+
+                    var srik = prompt ("Enter the Y-Coordinate of the point where your need axis" ,"Distance");
+                    srik = srik / 1;
+                    var zeltron = srik;
+                    zeltron = zeltron  / 1;
+                    area1 = area1 / 1;
+                    area1 = area1.toFixed (2);
+                    srik = srik * srik * area1;
+                    inertia1 = inertia1 / 1;
+                    inertia1 = inertia1 + srik;
+                    inertia1 = inertia1.toFixed (2);
+                    alert ("The two lines in red represent the lines one of which can be required by you and the black line is the the axis through the center of mass");
+                    document.getElementById ("output1").value = "(" +inertia1+ ")";
+                    document.getElementById ("output2").value = area1;
+
+                    var c2 = document.getElementById("can1");
+                    var co2 = c2.getContext ("2d");
+                    co2.clearRect (0, 0, can1.width, can1.height);
+
+                    co2.beginPath ();
+                    co2.moveTo (225, 0);
+                    co2.lineTo (225, 450);
+                    co2.strokeStyle = "black";
+                    co2.stroke ();
+
+                    co2.beginPath ();
+                    co2.moveTo (0, 225);
+                    co2.lineTo (450, 225);
+                    co2.strokeStyle = "black";
+                    co2.stroke ();
+
+                    co2.clearRect ((225 - x1), (225 - x1), 2 * x1, 2 * x1);
+
+                    co2.beginPath ();
+                    co2.arc (225, 225, x1, radminus1, radplus1);
+                    co2.lineTo (225, 225);
+                    co2.fillStyle = "gold";
+                    co2.fill ();
+
+                    co2.beginPath ();
+                    co2.arc (225, 225, z1, radminus1, radplus1);
+                    co2.lineTo (225, 225);
+                    co2.fillStyle = "white";
+                    co2.fill ();
+
+                    co2.beginPath ();
+                    co2.arc ((225), (225), 5, 0, 2 * Math.PI);
+                    co2.fillStyle = "blue";
+                    co2.fill ();
+
+                    co2.beginPath ();
+                    co2.arc (225, (225 - out1), 3, 0, 2 * Math.PI);
+                    co2.fillStyle = "green";
+                    co2.fill ();
+
+                    co2.beginPath ();
+                    co2.arc (225, (225 - out1), zeltron, 0, 2 * Math.PI);
+                    co2.strokeStyle = "red";
+                    co2.stroke ();
+               }
+          </script>
+     </head>
+     <body background = "background.jpg">
+          <br>
+          <br>
+          <br>
+          <center>
+               <table cellspacing = "5" background = "table.jpg" border = "3" bordercolor = "blue">
+                    <tr>
+                         <td align = "center" valign = "center">
+                              <img src = "ringinertia.png" width = "472" height = "472" bordercolor = "gold" border = "5">
+                         </td>
+                         <td align = "center">
+                              <table bgcolor = "#ccffff">
+                                   <tr>
+                                        <td align = "center" colspan = "2">
+                                             <h1><font color = "green"><b><i><u>Annular Segment<br>Moment of Inertia</u></i></b></font></h1>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Radius (Outer):</b></font>
+                                        </td>
+                                        <td align = "right">
+                                             <input type = "text" id = "oringradius" required>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Radius (Inner):</b></font>
+                                        </td>
+                                        <td align = "right">
+                                             <input type = "text" id = "iringradius" required>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Angle (in degrees):</b></font>
+                                        </td>
+                                        <td align = "right">
+                                             <input type = "text" id = "ringangle" required>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td colspan = "2">
+                                             <p style = "color:red;">
+                                                  <font size = "1">
+                                                       (Please make sure that the Angle entered must be less than or equal to 360 and<br>Radius(Outer) is greater than Radius(Inner))
+                                                  </font>
+                                             </p>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td colspan = "2" align = "center">
+                                             <button class = "button button1" onclick = "ringcomcalc ()">Compute</button>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                   </tr>
+                                   <tr>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Moment of Inertia about the X-Axis<br> through it's center: </b></font>
+                                        </td>
+                                        <td colspan = "2" align = "right">
+                                             <font color = "white" size = "1">
+                                                  <input id = "output671" style = "background:yellow" size = "17">
+                                             </font>
+                                        </td>
+                                   </tr>
+                                   <tr align = "center">
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Moment of Inertia about the Z-Axis<br> through it's center: </b></font>
+                                        </td>
+                                        <td colspan = "2" align = "right">
+                                             <font color = "white" size = "1">
+                                                  <input id = "output670" style = "background:yellow" size = "17">
+                                             </font>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Moment of Inertia about<br> the Center of Mass: </b></font>
+                                        </td>
+                                        <td colspan = "2" align = "right">
+                                             <font color = "white" size = "1">
+                                                  <input id = "output3" style = "background:yellow" size = "17">
+                                             </font>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Moment of Inertia about<br> user given Axis: </b></font>
+                                        </td>
+                                        <td colspan = "2" align = "right">
+                                             <font color = "white" size = "1">
+                                                  <input id = "output1" style = "background:yellow" size = "17">
+                                             </font>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td align = "left">
+                                             <font face = "aerial" color = "blue" size = "1"><b>Area: </b></font>
+                                        </td>
+                                        <td colspan = "2" align = "right">
+                                             <font color = "white" size = "1">
+                                                  <input id = "output2" style = "background:yellow" size = "17">
+                                             </font>
+                                        </td>
+                                   </tr>
+                              </table>
+                         </td>
+                         <td align = "center" bgcolor = "white">
+                              <canvas  width = "450" height = "450" id = "can1">Your Browser does not support HTML5 Canvas Tag</canvas>
+                         </td>
+                    </tr>
+                    <tr>
+                    </tr>
+               </table>
+          </center>
+     </body>
+</html>

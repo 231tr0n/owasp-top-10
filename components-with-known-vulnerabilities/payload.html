@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		  <style>
+		  .button {
+			   background-color: #4CAF50;
+			   border: none;
+			   color: white;
+			   padding: 10px 32px;
+			   text-align: center;
+			   text-decoration: none;
+			   display: inline-block;
+			   font-size: 16px;
+			   margin: 4px 2px;
+			   cursor: pointer;
+		  }
+		  .button1 {
+			   background-color: #4CAF50;
+			   color: white;
+			   border: 5px solid #4CAF50;
+		  }
+		  .button1:hover {
+			   background-color:white;
+			   color: #4CAF50;
+		  }
+		  </style>
+		  <metacharset = "utf-8">
+		  <meta name = "viewport" content = "width = device-width, height = device-height, initial-scale = 1.0">
+		  <title>XML text Editor</title>
+	 </head>
+	 <body background = "background.jpg">
+		  <center>
+			   <br>
+			   <br>
+			   <textarea id = "zeltron" cols = "80" rows = "10" style = "overflow: scroll; font-size: 30px;"></textarea>
+			   <br>
+			   <button class = "button button1" onclick = "zeltron()">Click me</button>
+			   <font size = "7"><p align = "left" id = "output" style = "width: 90%; background-color: black; color: yellow;"></p></font>
+			   <script>
+					function zeltron() {
+						 var text = document.getElementById("zeltron").value;
+						 var parser = new DOMParser();
+						 var xmlDoc = parser.parseFromString(text, "text/xml");
+						 document.getElementById("output").innerHTML = xmlDoc.getElementsByTagName("root")[0].childNodes[0].nodeValue;
+					}
+			   </script>
+		  </center>
+	 </body>
+</html>
+
+<!--
+<!DOCTYPE root [
+	 <!ENTITY ha "Ha !">
+	 <!ENTITY ha2 "&ha; &ha;">
+	 <!ENTITY ha3 "&ha2; &ha2;">
+	 <!ENTITY ha4 "&ha3; &ha3;">
+	 <!ENTITY ha5 "&ha4; &ha4;">
+]>
+<root>&ha5;</root>
+-->

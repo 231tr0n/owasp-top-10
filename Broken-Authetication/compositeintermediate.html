@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <style>
+               .button
+               {
+                    background-color: #4CAF50;
+                    border: none;
+                    color: white;
+                    padding: 16px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+               }
+
+               .button1
+               {
+                    background-color: white;
+                    color: #4CAF50;
+                    border: 5px solid #4CAF50;
+               }
+
+               .button1:hover
+               {
+                    background-color: #4CAF50;
+                    color: white;
+               }
+          </style>
+          <metacharset = "utf-8">
+          <title>compositeintermediate</title>
+          <script>
+               let exceptionalcondition = 0;
+               let sigmacenterx = 0;
+               let sigmacentery = 0;
+               let finalarea = 0;
+
+               function refresh ()
+               {
+                    c1 = document.getElementById("can3");
+                    co1 = c1.getContext ("2d");
+
+                    co1.clearRect (0, 0, c1.width, c1.height);
+
+                    exceptionalcondition = 0;
+                    sigmacenterx = 0;
+                    sigmacentery = 0;
+                    finalarea = 0;
+
+                    document.getElementById ("zeltron").value = " ";
+                    document.getElementById ("xeltron").value = " ";
+               }
+
+               function compositecalc ()
+               {
+                    function toRadians1 (deg1)
+                    {
+                         return Math.PI * (deg1 / 180);
+                    }
+
+                    function ringarea (r1, r2, theta)
+                    {
+                         r1 = (r1 * r1) - (r2 * r2);
+                         r1 = Math.PI * r1;
+                         r2 = theta / 360;
+                         r1 = r1 * r2;
+                         return r1;
+                    }
+
+                    function centroid (p1, p2, p3)
+                    {
+                         var cen = p1 + p2 + p3;
+                         cen = cen / 3;
+                         return cen;
+                    }
+
+                    function area (a1, b1, a2, b2, a3, b3)
+                    {
+                         a1 = a1 / 1;
+                         b1 = b1 / 1;
+                         a2 = a2 / 1;
+                         b2 = b2 / 1;
+                         a3 = a3 / 1;
+                         b3 = b3 / 1;
+
+                         var number = 0.5;
+
+                         var n1 = b2 - b3;
+                         n1 = n1 / 1;
+                         var n2 = b3 - b1;
+                         n2 = n2 / 1;
+                         var n3 = b1 - b2;
+                         n3 = n3 / 1;
+
+                         var d1 = n1 * a1;
+                         d1 = d1 / 1;
+                         var d2 = n2 * a2;
+                         d2 = d2 / 1;
+                         var d3 = n3 * a3;
+                         d3 = d3 / 1;
+
+                         var asd = d1 + d2 + d3;
+                         asd = asd / 2;
+
+                         if (asd < 0)
+                         {
+                              return ((-1) * asd);
+                         }
+                         else
+                         {
+                              return asd;
+                         }
+                    }
+                    let fortest = 1, whiletest = 1, c1, co1, rmad, c, gamma = 0, beta = 0, finaldecision;
+                    let x1, z1, qel1, qel2, w6, w7, y1, eer, radplus1, radminus1, centerx1, centerx2, e1, w1, q1, q2, q3, ras1, ras2, q5, q6, q7, out1, eer1, cose, cose1, sose, sose1, circlearea;
+                    let m, n, e = 0, nside, xx, yy, zz, xpolygon, ypolygon, xfirst1 = 0, xfirst = 0, yfirst1 = 0, yfirst = 0, xareaoftriangle = 0, yareaoftriangle = 0, areaoftriangle = 0, i, j, k, u;
+                    let x = [];
+                    let y = [];
+                    fortest = fortest / 1;
+                    whiletest = whiletest / 1;
+
+                    c1 = document.getElementById("can3");
+                    co1 = c1.getContext ("2d");
+
+                    co1.beginPath ();
+                    co1.moveTo (600, 0);
+                    co1.lineTo (600, 1200);
+                    co1.stroke ();
+
+                    co1.beginPath ();
+                    co1.moveTo (0, 600);
+                    co1.lineTo (1200, 600);
+                    co1.stroke ();
+
+                    if (exceptionalcondition == 0)
+                    {
+                         alert ("This window does not recognise any outputs which are non numerical and out of bounds of the formula and can give errors");
+                         alert ("This window is only for finding out center of mass of a complex shape");
+                    }
+
+                    rmad = 2;
+                    c = prompt ("Select a shape: Enter 1 for arc, Enter 2 for polygon", "Enter only the respective numbers");
+                    c = c / 1;
+                    if (c == 1)
+                    {
+                         if (exceptionalcondition != 0)
+                         {
+                              rmad = prompt ("Enter if you want to remove the shape or add the shape: Enter 1 to remove shape, Enter 2 to add shape", "Enter only the respective numbers");
+                         }
+                         rmad = rmad / 1;
+                         x1 = prompt ("Enter the outer ring radius");
+                         z1 = prompt ("Enter the inner ring radius");
+                         qel1 = prompt ("Enter the theta one");
+                         qel2 = prompt ("Enter the theta two");
+                         w6 = prompt ("Enter ring center X-Coordinate");
+                         w7 = prompt ("Enter the ring center Y-Coordinate");
+                         qel1 = qel1 / 1;
+                         qel2 = qel2 / 1;
+                         y1 = (qel2 - qel1) / 2;
+                         eer = (qel2 + qel1) / 2;
+                         w6 = w6 / 1;
+                         w7 = w7 / 1;
+
+                         plus1 = 360 - qel1;
+                         minus1 = 360 - qel2;
+                         radplus1 = toRadians1 (plus1);
+                         radminus1 = toRadians1 (minus1);
+
+                         e1 = toRadians1 (y1);
+                         w1 = Math.sin (e1);
+                         q1 = w1 / e1;
+                         q2 = x1 * x1 * x1 * 2;
+                         q3 = z1 * z1 * z1 * 2;
+                         ras1 = x1 * x1 * 3;
+                         ras2 = z1 * z1 * 3;
+                         q2 = q2 / 1;
+                         q3 = q3 / 1;
+                         ras1 = ras1 / 1;
+                         ras2 = ras2 / 1;
+                         q5 = q2 - q3;
+                         q6 = ras1 - ras2;
+                         q7 = q5 / q6;
+                         out1 = q1 * q7;
+
+                         eer1 = toRadians1 (eer);
+                         cose = Math.cos (eer1);
+                         cose1 = cose * out1;
+                         sose = Math.sin (eer1);
+                         sose1 = sose * out1;
+
+                         co1.beginPath ();
+                         co1.arc (600 + w6, 600 - w7, x1, radminus1, radplus1);
+                         co1.lineTo (600 + w6, 600 - w7);
+                         if (rmad == 2)
+                         {
+                              co1.fillStyle = "gold";
+                         }
+                         else {
+                              co1.fillStyle = "white";
+                         }
+                         co1.fill ();
+
+                         co1.beginPath ();
+                         co1.arc (600 + w6, 600 - w7, z1, radminus1, radplus1);
+                         co1.lineTo (600 + w6, 600 - w7);
+
+                         co1.fillStyle = "white";
+
+                         co1.fill ();
+                         co1.fill ();
+
+                         co1.beginPath ();
+                         co1.arc ((600 + w6 + cose1), (600 - w7 - sose1), 2, 0, 2 * Math.PI);
+                         co1.fillStyle = "green";
+                         co1.fill ();
+
+                         circlearea = ringarea (x1, z1, (y1 * 2));
+                         if (rmad == 1)
+                         {
+                              finalarea = finalarea - circlearea;
+                         }
+                         else {
+                              finalarea = finalarea + circlearea;
+                         }
+
+                         centerx1 = w6 + cose1;
+                         centerx2 = w7 + sose1;
+                         gamma = circlearea * centerx1;
+                         gamma = gamma / 1;
+                         beta = circlearea * centerx2;
+                         beta = beta / 1;
+
+                         if (rmad == 1)
+                         {
+                              gamma = -1 * gamma;
+                              beta = -1 * beta;
+                         }
+                         sigmacentery = sigmacentery / 1;
+                         sigmacenterx = sigmacenterx / 1;
+                         sigmacenterx = sigmacenterx + gamma;
+                         sigmacentery = sigmacentery + beta;
+
+                         finaldecision = prompt ("Are you done with adding shapes: Enter 1 if done and 2 if not done");
+                         if (finaldecision == 1)
+                         {
+                              sigmacenterx = sigmacenterx / finalarea;
+                              sigmacenterx = sigmacenterx.toFixed (2);
+                              sigmacentery = sigmacentery / finalarea;
+                              sigmacentery = sigmacentery.toFixed (2);
+                              finalarea = finalarea.toFixed (2);
+                              document.getElementById ("zeltron").value = "(" + sigmacenterx + ", " + sigmacentery + ")";
+                              document.getElementById ("xeltron").value = finalarea;
+
+                              co1.beginPath ();
+                              co1.arc ((600 + sigmacenterx), (600 - sigmacentery), 5, 0, 2 * Math.PI);
+                              co1.fillStyle = "red";
+                              co1.fill ();
+
+                              co1.beginPath ();
+                              co1.arc ((600), (600), 5, 0, 2 * Math.PI);
+                              co1.fillStyle = "blue";
+                              co1.fill ();
+                         }
+                    }
+                    else if (c == 2)
+                    {
+                         e1 = 0;
+                         if (exceptionalcondition != 0)
+                         {
+                              rmad = prompt ("Enter if you want to remove the shape or add the shape: Enter 1 to remove shape, Enter 2 to add shape", "Enter only the respective numbers");
+                         }
+                         rmad = rmad / 1;
+
+                         nside = prompt ("Enter the number of sides");
+                         if (isNaN (nside))
+                         {
+                              alert ("Please enter a number");
+                         }
+                         else if (nside < 3)
+                         {
+                              alert ("Please enter a minimum of three sides");
+                         }
+                         else
+                         {
+                              if (exceptionalcondition == 0)
+                              {
+                                   alert ("Please enter only numeric values in the fields which are going to come after you click Ok, any other datatypes are not recognised by the algorithm at all and can give errors.");
+                              }
+                              for (i = 0; i < nside; i ++)
+                              {
+                                   m = prompt ("Please enter the X-Coordinate", "X-Coordinate");
+                                   x.push (m);
+                                   n = prompt ("Please enter the Y-Coordinate", "Y-Coordinate");
+                                   y.push (n);
+                              }
+                              for (j = 0; j < nside; j ++)
+                              {
+                                   e = e / 1;
+                                   x [j] = x [j] / 1;
+                                   e = e + x [j];
+                              }
+                              for (k = 0; k < nside; k ++)
+                              {
+                                   e1 = e1 / 1;
+                                   y [k] = y [k] / 1;
+                                   e1 = e1 + y [k];
+                              }
+                              e = e / nside;
+                              e1 = e1 / nside;
+                              for (xx = 0; xx < (nside - 1); xx ++)
+                              {
+                                   xareaoftriangle = area (e, e1, x [xx], y [xx], x [xx + 1], y [xx + 1]);
+                                   xfirst = xareaoftriangle * centroid (e, x [xx], x [xx + 1]);
+                                   xfirst1 = xfirst1 + xfirst;
+                              }
+                              xareaoftriangle = area (e, e1, x [nside - 1], y [nside - 1], x [0], y [0]);
+                              xfirst = xareaoftriangle * centroid (e, x [nside - 1], x [0]);
+                              xfirst1 = xfirst1 + xfirst;
+                              for (yy = 0; yy < (nside - 1); yy ++)
+                              {
+                                   yareaoftriangle = area (e, e1, x [yy], y [yy], x [yy + 1], y [yy + 1]);
+                                   yfirst = yareaoftriangle * centroid (e1, y [yy], y [yy + 1]);
+                                   yfirst1 = yfirst1 + yfirst;
+                              }
+                              yareaoftriangle = area (e, e1, x [nside - 1], y [nside - 1], x [0], y [0]);
+                              yfirst = yareaoftriangle * centroid (e1, y [nside - 1], y [0]);
+                              yfirst1 = yfirst1 + yfirst;
+                              for (zz = 0; zz < (nside - 1); zz ++)
+                              {
+                                   areaoftriangle = areaoftriangle + area (e, e1, x [zz], y [zz], x [zz + 1], y [zz + 1]);
+                              }
+                              areaoftriangle = areaoftriangle + area (e, e1, x [nside - 1], y [nside - 1], x [0], y [0]);
+                              xpolygon = xfirst1 / areaoftriangle;
+                              ypolygon = yfirst1 / areaoftriangle;
+
+                              co1.beginPath ();
+                              co1.moveTo (600, 600);
+                              for (u = 0; u < nside; u ++)
+                              {
+                                   co1.lineTo ((600 + x [u]), (600 - y [u]));
+                              }
+                              co1.lineTo ((600 + x [0]), (600 - y [0]));
+                              if (rmad == 2)
+                              {
+                                   co1.fillStyle = "gold";
+                              }
+                              else {
+                                   co1.fillStyle = "white";
+                              }
+                              co1.fill ();
+
+                              co1.beginPath ();
+                              co1.arc ((600 + xpolygon), (600 - ypolygon), 2, 0, 2 * Math.PI);
+                              co1.fillStyle = "green";
+                              co1.fill ();
+
+                              if (rmad == 1)
+                              {
+                                   finalarea = finalarea - areaoftriangle;
+                              }
+                              else {
+                                   finalarea = finalarea + areaoftriangle;
+                              }
+
+                              gamma = areaoftriangle * xpolygon;
+                              beta = areaoftriangle * ypolygon;
+                              if (rmad == 1)
+                              {
+                                   gamma = -1 * gamma;
+                                   beta = -1 * beta;
+                              }
+                              sigmacenterx = sigmacenterx + gamma;
+                              sigmacentery = sigmacentery + beta;
+
+                              finaldecision = prompt ("Are you done with adding shapes: Enter 1 if done and 2 if not done");
+                              if (finaldecision == 1)
+                              {
+                                   sigmacenterx = sigmacenterx / finalarea;
+                                   sigmacenterx = sigmacenterx.toFixed (2);
+                                   sigmacentery = sigmacentery / finalarea;
+                                   sigmacentery = sigmacentery.toFixed (2);
+                                   finalarea = finalarea.toFixed (2);
+                                   document.getElementById ("zeltron").value = "(" + sigmacenterx + ", " + sigmacentery  + ")";
+                                   document.getElementById ("xeltron").value = finalarea;
+
+                                   co1.beginPath ();
+                                   co1.arc ((600 + sigmacenterx), (600 - sigmacentery), 5, 0, 2 * Math.PI);
+                                   co1.fillStyle = "red";
+                                   co1.fill ();
+
+                                   co1.beginPath ();
+                                   co1.arc ((600), (600), 5, 0, 2 * Math.PI);
+                                   co1.fillStyle = "blue";
+                                   co1.fill ();
+                              }
+                         }
+                    }
+                    else
+                    {
+                         alert ("You have not entered any number");
+                    }
+                    exceptionalcondition = exceptionalcondition + 1;
+               }
+          </script>
+     </head>
+     <body background = "background.jpg">
+          <center>
+               <table background= "table.jpg">
+                    <tr>
+                         <td align = "center">
+                              <button onclick = "compositecalc ()" class = "button button1"><font size = "7"><b><i>Add or Remove Shapes</i></b></font></button>
+                              <button onclick = "refresh ()" class = "button button1"><font size = "7"><b><i>Refresh</i></b></font></button>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td bgcolor = "#0033cc" align = "center">
+                              <font color = "gold">
+                                   <h1><b>Please hit the refresh button if you want to start adding the shapes freshly.</b></h1>
+                              </font>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td align = "center" bgcolor = "white">
+                              <canvas id = "can3" width = "1200" height = "1200">Your Browser doesn't support the HTML Canvas tag</canvas>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td align = "center">
+                              <table bgcolor = "#ccffff">
+                                   <tr>
+                                        <td align = "right">
+                                             <font size = "3" color ="blue">Coordiantes of Center of Mass: </font>
+                                        </td>
+                                        <td align = "left">
+                                             <input id = "zeltron" type = "text" size = "40" style = "background-color:yellow;">
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td bgcolor = "#ccffff" align = "right">
+                                             <font size = "3" color ="blue">Area: </font>
+                                        </td>
+                                        <td align = "left">
+                                             <input id = "xeltron" type = "text" size = "40" style = "background-color:yellow;">
+                                        </td>
+                                   </tr>
+                              </table>
+                         </td>
+                    </tr>
+               </table>
+          </center>
+     </body>
+</html>
